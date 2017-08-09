@@ -41,8 +41,16 @@ about:
   license_family: MIT
   license_file: LICENSE.txt
   summary: 'HTTP library with thread-safe connection pooling, file post, and more.'
+  description: |
+    urllib3 is a powerful, sanity-friendly HTTP client for Python. Much of the
+    Python ecosystem already uses urllib3. urllib3 brings many critical features
+    that are missing from the Python standard libraries, such as thread safety,
+    connection pooling, client side ssl/tls verification, support for gzip and
+    deflate encodings, HTTP and SOCKS proxy support, helpers for retrying requests
+    and dealing with HTTP redirects.
   doc_url: https://urllib3.readthedocs.io/
   dev_url: https://github.com/shazow/urllib3
+  doc_source_url: https://github.com/shazow/urllib3/tree/master/docs
 
 extra:
   recipe-maintainers:
