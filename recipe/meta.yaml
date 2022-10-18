@@ -30,8 +30,8 @@ requirements:
     # optional deps [socks]
     - pysocks >=1.5.6,<2.0,!=1.5.7
     # optional deps [brotli]
-    - brotli >=1.0.9
-    - brotlicffi >=0.8.0
+    # https://github.com/AnacondaRecipes/urllib3-feedstock/issues/2
+    - brotlipy >=0.6.0
 
 test:
   imports:
