@@ -51,6 +51,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
+  license_url: https://github.com/urllib3/urllib3/blob/main/LICENSE.txt
   summary: HTTP library with thread-safe connection pooling, file post, and more.
   description: |
     urllib3 is a powerful, sanity-friendly HTTP client for Python. Much of the
