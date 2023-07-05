@@ -21,7 +21,7 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - hatchling >=1.6.0,<2
+    - hatchling 1.12.2
   run:
     - python
     # optional deps [secure]
