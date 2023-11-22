@@ -31,7 +31,6 @@ test:
   imports:
     - urllib3
     - urllib3.contrib
-    - urllib3.contrib._securetransport
     - urllib3.util
   commands:
     - pip check
