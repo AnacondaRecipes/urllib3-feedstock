@@ -1,5 +1,5 @@
 {% set name = "urllib3" %}
-{% set version = "2.0.3" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bee28b5e56addb8226c96f7f13ac28cb4c301dd5ea8a6ca179c0b9835e032825
+  sha256: df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54
 
 
 build:
   number: 0
-  skip: True  # [py<37]
+  skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
@@ -22,15 +22,15 @@ requirements:
     - hatchling >=1.6.0,<2
   run:
     - python
-    # optional deps [socks]
-    - pysocks >=1.5.6,<2.0,!=1.5.7
-    - brotli-python >=1.0.9
+  run_constrained:
+    # based on https://github.com/urllib3/urllib3/issues/2680
+    - requests >=2.26.0
+    - selenium >=4.4.3
 
 test:
   imports:
     - urllib3
     - urllib3.contrib
-    - urllib3.contrib._securetransport
     - urllib3.util
   commands:
     - pip check
