@@ -1,5 +1,5 @@
 {% set name = "urllib3" %}
-{% set version = "2.1.0" %}
+{% set version = "2.0.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54
+  sha256: c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84
 
 
 build:
   number: 0
-  skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
@@ -26,6 +25,12 @@ requirements:
     # based on https://github.com/urllib3/urllib3/issues/2680
     - requests >=2.26.0
     - selenium >=4.4.3
+    # optional deps [socks]
+    - pysocks >=1.5.6,<2.0,!=1.5.7
+    # optional deps [brotli]
+    - brotli-python >=1.0.9
+    # optional deps [zstd]
+    - zstandard >=0.18.0
 
 test:
   imports:
@@ -59,3 +64,5 @@ extra:
     - sigmavirus24
     - ocefpaf
     - sethmlarson
+  skip-lints:
+    - missing_wheel
