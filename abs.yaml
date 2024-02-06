@@ -1,0 +1,4 @@
+channels:
+  lp_test: snowflake
+
+upload_without_merge: True
