@@ -9,7 +9,6 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19
 
-
 build:
   number: 0
   skip: True  # [py<38]
@@ -42,6 +41,9 @@ test:
     - urllib3.util
   commands:
     - pip check
+  # Test suite is being skipped due to transitive dependency on taskgroup
+  # Taskgroup is unstable as it only has pre-releases available
+    # - pytest -v --pyargs urlib3
   requires:
     - pip
 
