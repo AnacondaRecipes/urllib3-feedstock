@@ -31,8 +31,13 @@ requirements:
     # optional deps [brotli]
     - brotli-python >=1.0.9
   run_constrained:
-    - h2 >=4,<5
+    # based on https://github.com/urllib3/urllib3/issues/2680
+    - requests >=2.26.0
+    - selenium >=4.4.3
+    # optional deps [zstd]
     - zstandard >=0.18.0
+    # optional dep [h2]
+    - h2 >=4,<5
 
 test:
   imports:
