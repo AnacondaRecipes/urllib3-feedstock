@@ -1,5 +1,5 @@
 {% set name = "urllib3" %}
-{% set version = "2.1.0" %}
+{% set version = "2.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54
-
+  sha256: d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19
 
 build:
-  number: 1
+  number: 0
   skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
@@ -37,6 +36,8 @@ requirements:
     - selenium >=4.4.3
     # optional deps [zstd]
     - zstandard >=0.18.0
+    # optional dep [h2]
+    - h2 >=4,<5
 
 test:
   imports:
@@ -45,6 +46,9 @@ test:
     - urllib3.util
   commands:
     - pip check
+  # Test suite is being skipped due to transitive dependency on taskgroup
+  # Taskgroup is unstable as it only has pre-releases available
+    # - pytest -v --pyargs urlib3
   requires:
     - pip
 
