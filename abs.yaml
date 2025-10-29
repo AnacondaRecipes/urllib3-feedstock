@@ -4,3 +4,5 @@ build_env_vars:
 channels:
   - https://staging.continuum.io/pbp/fs/brotlicffi-feedstock/pr3/8746932
   - https://staging.continuum.io/pbp/fs/hatch-vcs-feedstock/pr5/f455dc7
+  - https://staging.continuum.io/pbp/fs/win_inet_pton-feedstock/pr1/ff08b6f
+  - https://staging.continuum.io/pbp/fs/pysocks-feedstock/pr1/3aabf75
