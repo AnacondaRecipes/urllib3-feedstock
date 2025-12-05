@@ -1,13 +1,13 @@
 {% set name = "urllib3" %}
-{% set version = "2.5.0" %}
+{% set version = "2.6.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: cb9bcef5a4b345d5da5d145dc3e30834f58e8018828cbc724d30b4cb7d4d49f1
   patches:
     # E   ModuleNotFoundError: No module named 'quart'
     - patches/0001-remove-dummyserver-usage-in-tests.patch
@@ -24,18 +24,17 @@ requirements:
   host:
     - python
     - pip
-    - hatchling >=1.6.0,<2
+    - hatchling >=1.27.0,<2
     - hatch-vcs >=0.4.0,<0.6.0
-    - setuptools-scm >=8,<9
+    - setuptools-scm >=8,<10
   run:
     - python
     # socks
     - pysocks >=1.5.6,<2.0,!=1.5.7
-    - brotli-python>=1.0.9  # [python_impl == CPython] 
-    - brotlicffi>=0.8.0  # [python_impl != CPython]
+    - brotli-python>=1.2.0  # [python_impl == CPython] 
+    - brotlicffi>=1.2.0  # [python_impl != CPython]
   run_constrained:
-    # zstd
-    - zstandard>=0.18.0
+    - backports.zstd>=1.0.0 [py<314]
     # h2
     - h2 >=4,<5
 
