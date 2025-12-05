@@ -18,9 +18,6 @@ build:
   skip: True  # [py<39]
 
 requirements:
-  build:
-    - patch  # [not win]
-    - m2-patch  # [win]
   host:
     - python
     - pip
@@ -31,10 +28,10 @@ requirements:
     - python
     # socks
     - pysocks >=1.5.6,<2.0,!=1.5.7
-    - brotli-python>=1.2.0  # [python_impl == CPython] 
-    - brotlicffi>=1.2.0  # [python_impl != CPython]
+    - brotli-python >=1.2.0  # [python_impl == CPython] 
+    - brotlicffi >=1.2.0  # [python_impl != CPython]
   run_constrained:
-    - backports.zstd>=1.0.0 [py<314]
+    - backports.zstd >=1.0.0 # [py<314]
     # h2
     - h2 >=4,<5
 
