@@ -1,5 +1,5 @@
 {% set name = "urllib3" %}
-{% set version = "2.6.0" %}
+{% set version = "2.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cb9bcef5a4b345d5da5d145dc3e30834f58e8018828cbc724d30b4cb7d4d49f1
+  sha256: 5379eb6e1aba4088bae84f8242960017ec8d8e3decf30480b3a1abdaa9671a3f
   patches:
     # E   ModuleNotFoundError: No module named 'quart'
     - patches/0001-remove-dummyserver-usage-in-tests.patch
@@ -28,8 +28,8 @@ requirements:
     - python
     # socks
     - pysocks >=1.5.6,<2.0,!=1.5.7
-    - brotli-python >=1.2.0  # [python_impl == CPython] 
-    - brotlicffi >=1.2.0  # [python_impl != CPython]
+    - brotli-python >=1.2.0  # [python_impl == cpython] 
+    - brotlicffi >=1.2.0  # [python_impl != cpython]
   run_constrained:
     - backports.zstd >=1.0.0 # [py<314]
     # h2
