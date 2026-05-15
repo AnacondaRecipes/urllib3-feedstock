@@ -36,9 +36,6 @@ requirements:
     - h2 >=4,<5
 
 test:
-  source_files:
-    - dummyserver
-    - test
   imports:
     - urllib3
     - urllib3.contrib
@@ -49,14 +46,6 @@ test:
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    # Manually excluded tests which used quart(not in main) and dummyserver(used quart)
-    - cd test && pytest -v test_collections.py test_compatibility.py test_connection.py test_connectionpool.py test_exceptions.py test_fields.py test_filepost.py test_http2_connection.py test_no_ssl.py test_poolmanager.py test_proxymanager.py test_queue_monkeypatch.py test_response.py test_retry.py test_ssl.py test_util.py test_wait.py tz_stub.py
-  requires:
-    - pip
-    - pytest >=8.3.4
-    - trustme >=1.2.1
-    - trio >=0.27.0
-    - h2 >=4,<5
 
 about:
   home: https://urllib3.readthedocs.io
