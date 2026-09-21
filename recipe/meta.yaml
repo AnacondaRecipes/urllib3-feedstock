@@ -1,5 +1,5 @@
 {% set name = "urllib3" %}
-{% set version = "2.7.0" %}
+{% set version = "2.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c
+  sha256: 63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63
   patches:
     # E   ModuleNotFoundError: No module named 'quart'
     - patches/0001-remove-dummyserver-usage-in-tests.patch
@@ -23,7 +23,7 @@ requirements:
     - pip
     - hatchling >=1.27.0,<2
     - hatch-vcs >=0.4.0,<0.6.0
-    - setuptools-scm >=8,<10
+    - setuptools-scm >=8,<11
   run:
     - python
     # socks
