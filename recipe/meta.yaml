@@ -28,8 +28,8 @@ requirements:
     - python
     # socks
     - pysocks >=1.5.6,<2.0,!=1.5.7
-    - brotli-python >=1.2.0  # [python_impl == cpython]
-    - brotlicffi >=1.2.0  # [python_impl != cpython]
+    - brotli-python >=1.2.0  # [python_impl == "cpython"]
+    - brotlicffi >=1.2.0  # [python_impl != "cpython"]
   run_constrained:
     - backports.zstd >=1.0.0  # [py<314]
     # h2
