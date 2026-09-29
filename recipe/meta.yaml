@@ -13,7 +13,7 @@ source:
     - patches/0001-remove-dummyserver-usage-in-tests.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: true  # [py<310]
 
@@ -28,8 +28,10 @@ requirements:
     - python
     # socks
     - pysocks >=1.5.6,<2.0,!=1.5.7
-    - brotli-python >=1.2.0  # [python_impl == "cpython"]
-    - brotlicffi >=1.2.0  # [python_impl != "cpython"]
+    # Using brotlicffi instead of python-brotli on purpose
+    # to avoid breaking user updates on installers.
+    # See: https://github.com/AnacondaRecipes/repodata-hotfixes/pull/349
+    - brotlicffi >=1.2.0
   run_constrained:
     - backports.zstd >=1.0.0  # [py<314]
     # h2
